@@ -28,7 +28,7 @@ Before you start you should have a TLS certificate in X.509 format that will be 
 
 Once you configure the API Manager to require client certificate, it means that every client that is connecting on port 8075 (or whatever default port is configured) will need to present its certificate. This includes not only API Portal as a client but the browser too. 
 
-So, in order to avoid troubles with connecting to API Manager from the browser we recomend to expose a new port for connection with API Portal and configure API Manager to require client certificate for connection on this port and leave the default port (8075) in the same state as it was until now.
+So, in order to avoid troubles with connecting to API Manager from the browser we recomend to expose a new port for connection with API Portal and configure API Manager to require client certificate for connection on this port and leave the default port (8075) in the same state as it was until now. For more details on how to expose a new port for API Manager please check - [Add Http or Https Interface. ](/docs/apim_policydev/apigw_gw_instances/general_services/#http-and-https-interfaces)
 
 Once you expose a new port, please don't forget to change it in the API Portal configuration - JAI > Components > API Portal > API Manager > **port** filed
 
