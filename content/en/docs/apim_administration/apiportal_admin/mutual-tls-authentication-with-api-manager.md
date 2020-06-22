@@ -2,7 +2,7 @@
 title: Mutual TLS Authentication with API Manager
 description: Configure API Portal to send its own (client) certificate to API Manager
 ---
-Before you start you should have a TLS certificate in X.509 format that will be used for the connection with API Manager. This certificate will serve to present the identity of API Portal to API Manager (Client side authentication). API Manager can be configured to require and verify this certificate (identity). 
+Before you start you should have a TLS certificate in X.509 format that will be used for the connection with API Manager. This certificate will serve to present the identity of API Portal to API Manager (Client side authentication). API Manager can be configured to require and verify this certificate (identity) - [Set up the back-end SSL server for mutual authentication](/docs/apim_administration/apimgr_admin/api_mgmt_custom_policies/#set-up-the-back-end-ssl-server-for-mutual-authentication)
 
 {{< alert title="Useful Tip" color="warning" >}}You can use the same TLS certificate that API Portal presents to the browser when being accessed.{{< /alert >}}
 
@@ -18,13 +18,13 @@ Before you start you should have a TLS certificate in X.509 format that will be 
 5. "API Portal (Client) Private key" - click "Choose File" and select the private key file for the certificate from your local file system.
 
 {{< alert title="Important" color="warning" >}}The supported file extensions for the private key is - **.key** {{< /alert >}}
- 
 
 6. "Private Key Passphrase" - if your private key is passphrase protected, type your passphrase in the text field (the text is masked). Leave the field empty if no passphrase on your private key. 
 7. Click **Save**.
 
+{{< alert title="Note" color="warning" >}}If you have multiple API Managers configured this API Portal (client) certificate will be present by the API Portal HTTP Client for every one of them. It's up to each API Manager whether to require and verify this certificate or not. No performance impact should be expected ! {{< /alert >}}
 
-## General recomendation 
+## General recommendation
 
 Once you configure the API Manager to require client certificate, it means that every client that is connecting on port 8075 (or whatever default port is configured) will need to present its certificate. This includes not only API Portal as a client but the browser too. 
 
