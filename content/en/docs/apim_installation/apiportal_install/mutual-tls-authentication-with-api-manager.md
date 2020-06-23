@@ -1,7 +1,7 @@
 ---
 title: Configure TLS authentication with API Manager
 linkTitle: Configure TLS authentication with API Manager
-weight: 22
+weight: 75
 date: 2020-06-22
 description: Configure API Portal and API Manager Mutual TLS authentication to increase the level of security of your API Portal.
 
