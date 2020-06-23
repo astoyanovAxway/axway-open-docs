@@ -16,17 +16,24 @@ Before you start you must have a TLS certificate, which presents the identity of
 2. On section **Mutual Authentication**, change **Send API Portal Certificate to API Manager** to **Yes**.
     * **API Portal (Client) Certificate** - Click **Choose File** and select the certificate file from your local file system. The supported file extensions for the certificate files are `.cer`, `.crt`, `.pem`, and `.der`.
     * **API Portal (Client) Private key** - Click **Choose File** and select the private key file for the certificate from your local file system. The supported file extensions for the private key is `.key`.
-    * **Private Key Passphrase** - If your private key is passphrase protected, type your passphrase in the text field (the text is masked). Leave the field empty if no passphrase on your private key.
+    * **Private Key Passphrase** - If your private key is passphrase protected, type your passphrase in the text field (the text is masked). Leave the field empty if there is no passphrase on your private key.
 3. Click **Save**.
 
-If you have multiple API Managers configured, API Portal HTTP Client will present the certificate for every one of them. It is up to each API Manager whether to require and verify this certificate or not. No performance impact is expected.
+If you have multiple API Managers configured, API Portal HTTP client will present the certificate for every one of them. It is up to each API Manager whether to require and verify this certificate or not. No performance impact is expected.
 
 ## Expose a new port for connection with API Portal
 
-Once you configure the API Manager to require client certificate, every client that is connecting on port `8075` (or whatever default port is configured) will present its certificate. This includes not only API Portal as a client, but also the browser.
+Once you configure API Manager to require client certificate, every client that is connecting on port `8075` (or whatever default port is configured) will present its certificate. This includes not only API Portal as a client, but also the browser.
 
-To avoid any issues with connecting to API Manager from the browser we recommend to expose a new port for Mutual Authentication connection with API Portal, configure API Manager to require client certificate for connection on this new port, and leave the default port (`8075`) in the same state as it was until now, so the browser continues to connect to API Manager on the default port. For more details on how to expose a new port for API Manager, see [Add Http or Https Interface](/docs/apim_policydev/apigw_gw_instances/general_services/#http-and-https-interfaces).
+To avoid any issues with connecting to API Manager from the browser, we recommend you to:
+
+* Expose a new port for mutual authentication connection with API Portal.
+* Configure API Manager to require client certificate for connection on this new port.
+* Leave the default port (`8075`) in the same state as it was until now, so the browser continues to connect to API Manager on the default port.
+
+For more details on how to expose a new port for API Manager, see [Add Http or Https Interface](/docs/apim_policydev/apigw_gw_instances/general_services/#http-and-https-interfaces).
 
 Once you expose a new port, you must change it in the API Portal configuration:
 
 1. In JAI, click **Components > API Portal > API Manager > Port**.
+2. Update the port, and click **Save**.
